@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .tab ul {
+            overflow: hidden;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .tab ul li {
+            box-sizing: border-box;
+            width: 100px;
+            height: 45px;
+            line-height: 45px;
+            text-align: center;
+            float: left;
+            list-style: none;
+            border-top: 1px solid blue;
+            border-right: 1px solid blue;
+            cursor: pointer;
+        }
+        
+        .tab ul li:first-child {
+            border-left: 1px solid blue;
+        }
+        
+        .tab ul li.active {
+            background-color: orange;
+        }
+        
+        .tab div {
+            width: 500px;
+            height: 300px;
+            line-height: 300px;
+            font-size: 30px;
+            text-align: center;
+            display: none;
+            border: 1px solid blue;
+            border-top: 0px;
+        }
+        
+        .tab div.current {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div class="tab">
+            <ul>
+                <li class="active"></li>
+                <li></li>
+                <li></li>
+            </ul>
+            <div class="current"><img src="img/apple.png" alt=""></div>
+            <div><img src="img/orange.png" alt=""></div>
+            <div><img src="img/lemon.png" alt=""></div>
+        </div>
+    </div>
+    <script src="js/jquery.js"></script>
+    <script>
+        $('.tab li').on('click', function() {
+            $(this).addClass('active').siblings().removeClass()
+            var index = $(this).index()
+            $(this).parent().siblings().eq(index).addClass('current').siblings().removeClass()
+        })
+    </script>
+</body>
+
+</html>
